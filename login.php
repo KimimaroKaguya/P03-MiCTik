@@ -24,7 +24,10 @@
      echo $sql;
 	 $query = $conn->query($sql);
     //  echo $query;
-	 $data = $conn->fetch_object($query);
+	 $data = $conn->fetch();
+     
+     	
+
      //$aaa =$conn->num_rows();
      //echo $aaa;
      

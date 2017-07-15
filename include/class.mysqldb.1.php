@@ -1,5 +1,6 @@
 <?php
-	//error_reporting(0);
+	error_reporting(E_ALL);
+   
 	class mysqldb {
 		var $host="localhost";
         var $username="apt";    // specify the sever details for mysql
@@ -41,10 +42,17 @@
         $this->query = mysqli_query($this->myconn,$sql);
         return $this->query;
 	}
-    function fetch_object($query) {
+    // function fetch_object($query) {
+    //     $this->connect();
+	// 	$result = mysqli_fetch_object($this->myconn,$query);
+    //     mysqli_free_result($result);
+    //     return $result;
+	// }
+    function fetch() {
         $this->connect();
-		$result = mysqli_fetch_object($this->myconn,$query);
-        return $result;
+		$result = mysqli_fetch_object($this->myconn,$this->query);
+        // mysqli_free_result($result);
+        return 	$result;
 	}
     function num_rows() {
 			return mysqli_num_rows($this->query); 
