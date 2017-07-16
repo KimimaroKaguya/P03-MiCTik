@@ -10,7 +10,7 @@
 
 <?php
 $url1=$_SERVER['REQUEST_URI'];
-header("Refresh: 60; URL=$url1");
+header("Refresh: 600; URL=$url1");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -19,15 +19,29 @@ header("Refresh: 60; URL=$url1");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<div class="content-wrapper">
-    <section class="content">
+
+<!-- Page Content -->
+<div class="content-wrapper"> 
+            <section class="content-header">
+              <h1>
+                Kthai Team
+                <small>Desing By Kthai Team</small>
+              </h1>
+              <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+                <li class="active">Hotspot</li>
+                <li class="active">User Online</li>
+              </ol>
+            </section>  
+        <section class="content">       
+ <!-- Page Content -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="box box-solid box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title"><i class="fa fa-users"></i> User online</h3>
-                        </div>
-                        <!-- /.box-heading -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                                    <div><h4><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp; ผู้ใช้งานที่ออนไลน์</h4></div>
+                                </div>
+                        <!-- /.panel-heading -->
                         <div class="box-body">
                             <div class="table-responsive">
                                 <table id="example1" class="table table-bordered table-hover">
@@ -105,18 +119,24 @@ header("Refresh: 60; URL=$url1");
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                        </div>     
+                        <!-- /#page-wrapper -->
                     </div>
                 </div>
-            </div>                    
+            </div>
         </section>
-        <!-- /#page-wrapper -->
-		</div>
-		<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+    </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Desing By</b> Kthai Team
+        </div>
+    <strong>Copyright &copy; 2016 - <?php echo date("Y");?> <a href="#">www.k-thai.net</a>.</strong> All rights
+  </footer>
+        <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
    <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
-	<script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
-	<script src="../dist/js/demo.js"></script>	
-	<script>
+    <script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="../dist/js/demo.js"></script>  
+    <script>
   $(function () {
     $("#example1").DataTable();
     $('#example2').DataTable({
@@ -129,5 +149,6 @@ header("Refresh: 60; URL=$url1");
     });
   });
 </script>
+
 </body>
 </html>

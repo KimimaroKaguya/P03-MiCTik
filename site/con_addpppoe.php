@@ -7,20 +7,21 @@
 	echo "<meta charset='utf-8'>" ;
 	$username=$_REQUEST['username'];
 	$password=$_REQUEST['password'];
-	$service="pppoe";
+	$service=$_REQUEST['service'];
 	$profiles=$_REQUEST['profile'];	
+	$status=$_REQUEST['status'];
 	$id=$_SESSION['id'];
-	$date=date('Y-m-d H:i:s');
 	if($username != ""){
 		$ARRAY = $API->comm("/ppp/secret/add", array(
 									  "name"     => $username,
 									  "password" => $password,
 									  "service"	=> $service,
-									  "profile"  => $profiles ,	
+									  "profile"  => $profiles,
+									  "comment"  => $status,	
 							));
 		$file=$username.".png";
-		QRcode::png('http://'.$ip.'/login?username='.$username.'&password='.$password.'', '../qrcode/'.$file.'');
-		mysql_query("INSERT INTO mt_gen_pppoe VALUE('".$username."','".$password."','".$profiles."','".$file."','".$date."','".$id."')");
+		QRcode::png('http://'.$ip.'/login?username='.$username.'&password='.$password.'', '../qrcodepppoe/'.$file.'');
+		mysql_query("INSERT INTO mt_gen_pppoe VALUE('".$username."','".$password."','".$profiles."','".$file."',NOW(),'".$id."','".$status."','".$service."')");
 		echo "<script>alert('ระบบได้ทำการเพิ่มผู้ใช้งาน PPPoE เรียบร้อยแล้ว.')</script>";
 		echo "<meta http-equiv='refresh' content='0;url=index.php?opt=pppoe_list' />";
 		exit();

@@ -4,7 +4,8 @@
 			include_once('conn.php');	
 																																															
 			$ARRAY = $API->comm("/ip/hotspot/user/print");	
-		
+		//	$ARRAY = $API->comm("/ppp/secret/print");	
+		//	$ARRAY = $API->comm("/tool/user-manager/user/print");	
 		
 		if($_REQUEST['check']!=""){			
 				for($i=0;$i < count($_REQUEST['check']);$i++){
@@ -16,10 +17,20 @@
 											"numbers" => $user,
 										));	
 							
+				//	mysql_query("DELETE FROM mt_gen WHERE user =  '".$user."'");
+				//	$ARRAY = $API->comm("/ppp/secret/remove", array(
+				//							"numbers" => $user,
+				//						));	
+
+				//	mysql_query("DELETE FROM mt_gen WHERE user =  '".$user."'");
+				//	$ARRAY = $API->comm("/tool/user-manager/user/remove", array(
+				//							"numbers" => $user,
+				//						));	
+
 					$img = $user.".png";
 					unlink("../qrcode/".$img);					
 				}
-				echo "<script>alert('Delete Successful.')</script>";
+				echo "<script>alert('ทำการลบผู้ใช้งาน Hotspot เรียบร้อยแล้ว.')</script>";
 				echo "<meta http-equiv='refresh' content='0;url=index.php?opt=user_list' />";
 				exit();
 						
@@ -50,34 +61,39 @@
 	</script>    
 </head>
 <body>
- <section class="content">
-		<form name="user" action="" method="post">
-        <div id="page-wrapper">
+<div class="content-wrapper">   
+        <section class="content">       
+ <!-- Page Content -->
             <div class="row">
-                <div class= "col-md-6 col-md-offset-3">
-                    <div class="box box-solid box-primary">
-                       <div class="box-header">
-                           <h3 class="box-title"><i class="fa fa-users"></i> Hotspot User </h3>                           
-                        </div>
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                                    <div><h4><i class="fa fa-wifi"></i> รายละเอียดผู้ใช้งานแยกตามแพคเกจ</h4></div>
+                                </div>
                         <!-- /.panel-heading -->
-                         <div class="box-body">
+                        <div class="panel-body">
+                            <form name="user" action="" method="post">
+                     
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>   
-											 
-                                        	<th>No.</th> 
-											 <th>name</th> 
-											<th>profile</th> 											 
-                                            <th>Edit</th>                                                                                        
+											<th width="10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="selecctall"/></th>  
+                                        	<th>ที่.</th>                                                                         	
+                                            <th>ชื่อผู้ใช้</th>                                            
+                                            <th>แพจเกต</th>
+                                            <th>แก้ไข</th>                                                                                        
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
-                                            <?php
+                                            
+												<?php
 													$date=$_GET['id'];
 													
-													$query=mysql_query("SELECT * FROM mt_gen WHERE date='".$date."'");									
+													$query=mysql_query("SELECT * FROM mt_gen WHERE date='".$date."'");												
 													/*
 													$num =count($ARRAY);													
 													for($i=0; $i<$num; $i++){	
@@ -100,7 +116,8 @@
 															echo "<td>".$i."</td>";								
 															echo "<td>".$result['user']."</td>";															
 															echo "<td>".$result['profile']."</td>";	
-															echo "<td><a href='index.php?opt=edit_user&id=".$result['user']."'>Edit</a></td>";														
+														//	echo "<td><a href='index.php?opt=edit_user&id=".$result['user']."'>Edit</a></td>";
+															echo "<td><a href='index.php?opt=edit_user&id=".$result['user']."'><button type=\"button\" class=\"btn btn-warning\"><i class=\"fa fa-pencil-square-o\"></i></button></a></td>";													
 														echo "</tr>";
 													
 													}
@@ -114,10 +131,23 @@
         </div>
         <!-- /#page-wrapper -->
 								<div class="form-group input-group">                                        
-                                       &nbsp;&nbsp;&nbsp;<button id="btnSave" class="btn btn-danger" type="submit"><i class="fa fa-times"></i>&nbsp;Delete&nbsp;</button>
-                                       &nbsp;&nbsp;&nbsp;<a href="index.php?opt=userall"><button id="btnCancel" class="btn btn-danger" type="reset"  Onclick="javascript:history.back()"><i class="glyphicon glyphicon-paste"></i>&nbsp;Cancle&nbsp;</button></a>
+                                       &nbsp;&nbsp;&nbsp;<button id="btnSave" class="btn btn-danger" type="submit"><i class="fa fa-trash-o"></i>&nbsp;Delete&nbsp;</button>
                                     </div>
+    
+      </form>                          
+                        </div>     
+                        <!-- /#page-wrapper -->
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    </div></div></div></form>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Desing By</b> Manas Panjai
+        </div>
+    <strong>Copyright &copy; 2016 - <?php echo date("Y");?> <a href="#">โรงเรียนหนองบัว</a>.</strong> All rights
+  </footer>
+
 </body>
 </html>

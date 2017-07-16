@@ -12,8 +12,9 @@
 		$user = $_REQUEST['username'];
 		$pass = $_REQUEST['password'];
 		$profile=$_REQUEST['profile'];
+		$status=$_REQUEST['status'];
 		$id=$_SESSION['id'];
-		$date=date('Y-m-d H:i:s');
+		//$date=date('Y-m-d H:i:s');
 		$i=1;
 		do{
 			$profiles=$_REQUEST['profile'];
@@ -25,17 +26,18 @@
 			if($row<=0){
 				$file=$username.".png";
 				QRcode::png('http://'.$ip.'/login?username='.$username.'&password='.$password.'', '../qrcode/'.$file.'');
-				$add=mysql_query("INSERT INTO mt_gen VALUE('".$username."','".$password."','".$profile."','".$file."','".$date."','".$id."')");	
+				$add=mysql_query("INSERT INTO mt_gen VALUE('".$username."','".$password."','".$profile."','".$file."',NOW(),'".$id."','".$status."')");	
 				$ARRAY = $API->comm("/ip/hotspot/user/add", array(
 									"name"		=> $username,
 									"password"	=> $password,
 									"profile"	=> $profiles,
+									"comment"	=> $status,
 									));								
 				$i++;			
 			}
 		}while($i<=$num);
 				
 		echo "<script>alert('Successful')</script>";
-		echo "<meta http-equiv='refresh' content='0;url=index.php?opt=user_list' />";
+		echo "<meta http-equiv='refresh' content='0;url=index.php?opt=userall' />";
 		exit();
 ?>

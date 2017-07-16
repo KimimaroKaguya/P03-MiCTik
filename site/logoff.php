@@ -7,6 +7,6 @@ if($_SESSION['APIUser']!='' AND $_SESSION_['EmpUser']==''){
 	print "<META HTTP-EQUIV='Refresh' CONTENT='0;URL=../admin/index.php'>"; 
 }else{
 	unset($_SESSION['id']);
-	print "<META HTTP-EQUIV='Refresh' CONTENT='0;URL=../admin/index.php'>"; 
+	print "<META HTTP-EQUIV='Refresh' CONTENT='0;URL=../index.php'>"; 
 }
 ?>

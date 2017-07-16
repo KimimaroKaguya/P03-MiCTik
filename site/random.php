@@ -1,6 +1,6 @@
 <?php
 function genUser(){
-	$allowed_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
+	$allowed_chars = '0123456789';
 	$allowed_count = strlen($allowed_chars);
 	$password = null;
 	$password_length = $_REQUEST['username'];
@@ -15,7 +15,7 @@ function genUser(){
 }
 
 function genPass(){
-	$allowed_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
+	$allowed_chars = '0123456789';
 	$allowed_count = strlen($allowed_chars);
 	$password = null;
 	$password_length = $_REQUEST['password'];

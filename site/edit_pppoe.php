@@ -15,9 +15,10 @@
 						$profile=$_REQUEST['profile'];
 						$img=$user.".png";
 						$file=$username.".png";
+						$status=$_REQUEST['status'];
 						@unlink("../qrcode/".$img);
 						QRcode::png('http://'.$ip.'/login?username='.$username.'&password='.$password.'', '../qrcode/'.$file.'');
-						mysql_query("UPDATE mt_gen_pppoe SET user='".$_REQUEST['username']."', pass='".$_REQUEST['password']."', profile='".$_REQUEST['profile']."' WHERE user='".$user."'");
+						mysql_query("UPDATE mt_gen_pppoe SET user='".$_REQUEST['username']."', pass='".$_REQUEST['password']."', profile='".$_REQUEST['profile']."', status='".$_REQUEST['status']."' WHERE user='".$user."'");
 						
 						$ARRAY = $API->comm("/ppp/secret/set", array(											
 											"name"		=> $username,
@@ -39,11 +40,12 @@
 							$password=$_REQUEST['password'];					
 							$username=$_REQUEST['username'];
 							$profile=$_REQUEST['profile'];
+							$status=$_REQUEST['status'];
 							$img=$user.".png";
 							$file=$username.".png";
 							@unlink("qrcode/".$img);
 							QRcode::png('http://'.$ip.'/login?username='.$username.'&password='.$password.'', 'qrcode/'.$file.'');
-							mysql_query("UPDATE mt_gen_pppoe SET user='".$_REQUEST['username']."', pass='".$_REQUEST['password']."', profile='".$_REQUEST['profile']."',qrcode='".$file."' WHERE user='".$user."'");
+							mysql_query("UPDATE mt_gen_pppoe SET user='".$_REQUEST['username']."', pass='".$_REQUEST['password']."', profile='".$_REQUEST['profile']."', status='".$_REQUEST['status']."',qrcode='".$file."' WHERE user='".$user."'");
 							
 							$ARRAY = $API->comm("/ppp/secret/set", array(											
 												"name"		=> $username,
@@ -70,18 +72,20 @@
 </head>
 
 <body>
- <!-- Page Content -->
-        <div id="page-wrapper">
 
+ <!-- Page Content -->
+<!-- Page Content -->
+<div class="content-wrapper">   
+        <section class="content">       
+ <!-- Page Content -->
             <div class="row">
-                <div class="col-lg-12"><br/>
-                        <div class="col-lg-2"></div>
-		                <div class="col-lg-8">
-		                    <div class="panel panel-info">                              
-		                        <div class="panel-heading">
-		                            เปลี่ยนแปลงข้อมูลผู้ใช้งาน
-		                        </div>
-		                        <div class="panel-body">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                                    <div><h4><i class="fa fa-wifi"></i> สร้างผู้ใช้งาน PPPoE แบบกลุ่ม 0-9</h4></div>
+                                </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
 		                           <form id="add_pppoe" action="" method="post">
                                    <?php
 								   		$result=mysql_fetch_array(mysql_query("SELECT * FROM mt_gen_pppoe WHERE user='".$_REQUEST['id']."'"));
@@ -109,22 +113,30 @@
 													}
 												?>
                                           </select>
-                                        </div>                                        
+                                        </div> 
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon">status&nbsp;</span>
+                                            <input type="text" name="status" placeholder="หมายเหตุ" class="form-control" value="<?php echo $result['status']; ?>" required>
+                                        </div>                                       
                                       
                                      <div class="form-group input-group">                                        
                                         <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;Save&nbsp;</button>&nbsp;&nbsp;&nbsp;                                        
 										<button id="btnCancel" class="btn btn-danger" type="reset"  Onclick="javascript:history.back()"><i class="fa fa-times"></i>&nbsp;Cancel&nbsp;</button>
                                     </div> 
                                     </form>
-		                        </div>		                        
-                        </div>
-                        <!-- /.col-lg-12 -->
+		                        </div>    
+                        <!-- /#page-wrapper -->
                     </div>
-                    <!-- /.row -->
                 </div>
-                <!-- /#page-wrapper -->
-        
             </div>
-            <!-- /#wrapper -->
+        </section>
+    </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Desing By</b> Manas Panjai
+        </div>
+    <strong>Copyright &copy; 2016 - <?php echo date("Y");?> <a href="#">โรงเรียนหนองบัว</a>.</strong> All rights
+  </footer>
+
 </body>
 </html>

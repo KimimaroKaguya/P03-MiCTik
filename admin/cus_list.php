@@ -13,23 +13,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style type="text/css">
-body {
-	margin-left: 250px;
-	margin-right: 250px;
-</style>
-</head>
+<style type="text/css"></style>
 <body>
 
-           <br />
-            <div class="row">
+<div class="content-wrapper">
+           <section class="content-header">
+      <h1>
+        โปรแกรมบริหารจัดการอินเตอร์เน็ต
+        <small>By Kthai Technology</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>หน้าแรก</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+	
+	<section class="content">
+           
+		<div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default" id="wrapper">
-                        <div class="panel-heading">
-							<button type="button" class="btn btn-warning">
-								<a href="index.php?opt=cus_add"><i class="fa fa-plus"></i> เพิ่มผู้ดูแลระบบ</a>
-							</button>
-						</div>
+                    <div class="box box-solid box-default">  
+                        <div class="box-header">
+		                            <h3 class="box-title"><i class="fa fa-user"></i>&nbsp;&nbsp;ผู้ดูและระบบ</h3>
+		                        </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -59,8 +65,8 @@ body {
 														echo "<td>".$result['em_user']."</td>";
 														echo "<td>".$result['mt_name']."</td>";				
 														echo "<td>";
-														echo "<a href='index.php?opt=cus_edit&id=".$result['em_id']."' title='แก้ไข'><img src='../img/edit.png' width=20px></a>";
-														echo "&nbsp;<a href='index.php?opt=cus_list&id=".$result['em_id']."' title='ลบ'><img src='../img/delete.png' width=20px></a></td>";														
+														echo "<a href='index.php?opt=cus_edit&id=".$result['em_id']."' title='แก้ไข'><button type=\"button\" class=\"btn btn-info\" title=\"แก้ไข\"><i class=\"fa fa-edit\"></i></button></a>";
+														echo "&nbsp;<a href='index.php?opt=cus_list&id=".$result['em_id']."' title='ลบ'><button type=\"button\" class=\"btn btn-danger\" title=\"ลบ\"><i class=\"fa fa-trash-o\"></i></button></a></td>";														
 													echo "</tr>";
 													}
 												?>
@@ -69,10 +75,14 @@ body {
                                     </tbody>
                                 </table>
                             </div>                           
-        </div>
-        <!-- /#page-wrapper -->
+        				</div>
 
-    </div>
+        <!-- /#page-wrapper -->
+		</div>
+    </section>
+</div>
+
+	
     
 </body>
 </html>

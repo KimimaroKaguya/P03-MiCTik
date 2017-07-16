@@ -20,11 +20,21 @@
 
 <body>
  <div class="content-wrapper">
+ 		<section class="content-header">
+		      <h1>
+		        โปรแกรมบริหารจัดการอินเตอร์เน็ต
+		        <small>By Kthai Technology </small>
+		      </h1>
+		      <ol class="breadcrumb">
+		        <li><a href="#"><i class="fa fa-dashboard"></i>หน้าแรก</a></li>
+		        <li class="active">Add Customer</li>
+		      </ol>
+    	</section>
         <section class="content">
 
             <div class="row">
-                <div class= "col-md-6 col-md-offset-3">
-		                     <div class="box box-solid box-primary">                               
+                    <div class="col-md-12">
+		                     <div class="box box-solid box-success">                               
 		                        <div class="box-header">
 		                            <h3 class="box-title"><i class="fa fa-user"></i>&nbsp;&nbsp;เพิ่มผู้ดูและระบบ</h3>
 		                        </div>
@@ -32,11 +42,11 @@
 		                           <form id="add_site" action="" method="post">    										
                                        <div class="form-group input-group">
                                             <span class="input-group-addon">ชื่อนามสกุล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                            <input type="text" name="name" placeholder="นรากร ใจกล้า" class="form-control" required>
+                                            <input type="text" name="name" placeholder="เคไทย" class="form-control" required>
                                         </div>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon">กำหนดชื่อผู้ดูแลระบบ&nbsp;&nbsp;&nbsp;</span>
-                                            <input type="text" name="user" placeholder="เช่น narakon" class="form-control" required>
+                                            <input type="text" name="user" placeholder="เช่น kthai" class="form-control" required>
                                         </div>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon">กำหนดรหัสผ่าน&nbsp;&nbsp;&nbsp;&nbsp;</span>

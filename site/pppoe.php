@@ -62,7 +62,7 @@
 </head>
 <body>
 		<form name="user" action="" method="post">
-        <div id="page-wrapper">
+        <div class="content-wrapper">
            <br />
             <div class="row">
                 <div class="col-lg-12">
