@@ -28,17 +28,28 @@
 
 <body>
  <!-- Page Content -->
-        <div id="page-wrapper">
 
-            <div class="row">
-                <div class="col-lg-12"><br/>
-                        <div class="col-lg-2"></div>
-		                <div class="col-lg-8">
-		                    <div class="panel panel-info">                              
-		                        <div class="panel-heading">
-		                            Change Password
-		                        </div>
-		                        <div class="panel-body">
+ 		<div class="content-wrapper">
+           <section class="content-header">
+      <h1>
+        Mikrotik API v.3
+        <small>By Kthai Team</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>หน้าแรก</a></li>
+        <li class="active">Dashboard</li>
+        <li class="active">Change Password</li>
+      </ol>
+    </section>
+	
+	<section class="content">
+           
+		<div class="row">
+                <div class="col-lg-12">
+                    <div class="box box-solid box-default">  
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
 		                           <form id="change_pass" action="" method="post">                                   		
                                         <div class="form-group input-group">
                                             <span class="input-group-addon">Old Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -54,18 +65,18 @@
                                         </div>                                          
                                         
                                      <div class="form-group input-group">                                        
-                                        <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;Save&nbsp;</button>&nbsp;&nbsp;&nbsp;                                        <button id="btnSave" class="btn btn-danger" type="reset"><i class="fa fa-times"></i>&nbsp;Cancel&nbsp;</button></a>
+                                        <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;Save&nbsp;</button>&nbsp;&nbsp;&nbsp;  
+                                        <button id="btnReset" class="btn btn-warning" type="reset"><i class="fa fa-undo"></i>&nbsp;Reset&nbsp;</button></a>  &nbsp;&nbsp;&nbsp;                                     
+                                        <button id="btnCancel" class="btn btn-danger" type="cancel" Onclick="javascript:history.back()"><i class="fa fa-times"></i>&nbsp;Cancel&nbsp;</button></a>
                                     </div> 
                                     </form>
-		                        </div>		                        
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /#page-wrapper -->
-        
-            </div>
-            <!-- /#wrapper -->
+		                        </div>	
+
+        <!-- /#page-wrapper -->
+</div>
+    </section>
+	</div>
+
+
 </body>
 </html>

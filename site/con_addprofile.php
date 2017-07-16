@@ -12,7 +12,9 @@
 	$limit=$_REQUEST['limit'];	
 	$keep=$_REQUEST['keep'];
 	$auto=$_REQUEST['auto'];
-	$list=$_REQUEST['address'];
+	$list=$_REQUEST['addresslist'];
+	$pool=$_REQUEST['pool'];
+	$maccookie=$_REQUEST['maccookie'];
 	$uptime=$_REQUEST['uptime'];
 	$login="{:local date [/system clock get date ];:local time [/system clock get time ];:local uptime (".$uptime.");:if ( [/ip hotspot user get \$user comment ] = \"\" ) do={[/ip hotspot user set \$user comment=\$date];[/system scheduler add disabled=no interval=\$uptime name=\$user on-event= \"[/ip hotspot user remove [find where name=\$user]];[/ip hotspot active remove [find where user=\$user]];[/sys sch re [find where name=\$user]]\" start-date=\$date start-time=\$time]; }}";
 
@@ -31,13 +33,15 @@
 			mysql_query("INSERT INTO mt_profile VALUE('".$name."','".$session."','".$idle."','".$keep."','".$auto."','".$uptime."','".$use."','".$limit."','".$list."',NOW())");
 			$ARRAY = $API->comm("/ip/hotspot/user/profile/add", array(
 									"name" => $name,
+									"address-pool" => $pool,
 								//	"session-timeout" => $session,
 									"idle-timeout" => $idle,
 									"keepalive-timeout" => $keep,
 									"status-autorefresh" => $auto,
 									"shared-users" => $use,
+									"mac-cookie-timeout" => $maccookie,
 									"rate-limit" => $limit,
-								//	"address-list" => $list,
+									"address-list" => $list,
 									"on-login" => $login
 								));		
 			echo "<script>alert('ทำการเพิ่มแพคเกจเข้าระบบเรียบร้อยแล้ว.')</script>";

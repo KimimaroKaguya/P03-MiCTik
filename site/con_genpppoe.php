@@ -3,7 +3,7 @@
 	include_once("../include/class.mysqldb.php");
 	include_once("../include/config.inc.php");
 	include_once('../phpqrcode/qrlib.php');
-	include_once('random.php');			
+	include_once('random2.php');			
 	include_once('conn.php');
 	
 	set_time_limit(500);	
@@ -13,6 +13,7 @@
 		$pass = $_REQUEST['password'];
 		$service="pppoe";
 		$profile=$_REQUEST['profile'];
+		$status=$_REQUEST['status'];
 		$id=$_SESSION['id'];
 		$date=date('Y-m-d H:i:s');
 		$i=1;
@@ -26,7 +27,7 @@
 			if($row<=0){
 				$file=$username.".png";
 				QRcode::png('http://'.$ip.'/login?username='.$username.'&password='.$password.'', '../qrcode/'.$file.'');
-				$add=mysql_query("INSERT INTO mt_gen_pppoe VALUE('".$username."','".$password."','".$profile."','".$file."','".$date."','".$id."')");	
+				$add=mysql_query("INSERT INTO mt_gen_pppoe VALUE('".$username."','".$password."','".$profile."','".$file."','".$date."','".$id."','".$status."')");	
 				$ARRAY = $API->comm("/ppp/secret/add", array(
 									"name"		=> $username,
 									"service"	=> $service,

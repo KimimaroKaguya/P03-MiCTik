@@ -5,11 +5,11 @@
 // Contacto: administracion@tech-nico.com //////////////////////////
 // RouterOS API: Grafica en tiempo real usando highcharts //////////
 //////////////////////////////////////////////////////////////////// ?>
-<?php require_once('../config/routeros_api.class.php'); ?>
+<?php require_once('../include/key.php'); ?>
 <?php
-$ipRouteros = "172.15.0.1";//ใส่เลข ip Router ของท่าน
-$Username="api"; //ใส่ user ที่สร้างไว้ใน Winbox ของผมสร้าง User API ในกลุ่ม Api
-$Pass="03167"; //ใส่รหัสผ่านของ User ที่ท่านสร้างไว้
+$ipRouteros = $ip;
+$Username=$user;
+$Pass=$pass;
 $api_puerto=8728;
 $interface = $_GET["interface"]; //"<pppoe-nombreusuario>";
 

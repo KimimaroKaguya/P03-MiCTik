@@ -23,13 +23,23 @@
 
 <body>
  <div class="content-wrapper">
+            <section class="content-header">
+              <h1>
+                โปรแกรมบริหารจัดการอินเตอร์เน็ต
+                <small>K Thai Technology </small>
+              </h1>
+              <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i>หน้าแรก</a></li>
+                <li class="active">Add Site</li>
+              </ol>
+            </section>
         <section class="content">
        
             <div class="row">
-                <div class= "col-md-6 col-md-offset-3">
-		                  <div class="box box-solid box-primary">                             
+                    <div class="col-md-12">
+		                  <div class="box box-solid box-success">                             
 		                        <div class="box-header">
-		                           <h3 class="box-title"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo $_SESSION['APIUser'] ;?></h3>
+		                           <h3 class="box-title"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo $_SESSION['APIUser'] ;?> เพิ่มสถานที่บริหารจัดการอินเตอร์เน็ต</h3>
 		                        </div>
 		                       <div class="box-body">
 		                           <form id="add_site" action="" method="post">                                   		
@@ -47,25 +57,25 @@
                                         </div>                                          
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <h4 class="page-header">Site Detail</h4>
+                                                <h4 class="page-header">รายละเอียดสถานที่จัดการบริหารอินเตอร์เน็ต Site</h4>
                                             </div>
                                             <!-- /.col-lg-12 -->
                                         </div>
             
                                         <div class="form-group input-group">
-                                            <span class="input-group-addon">Site Name&nbsp;</span>
+                                            <span class="input-group-addon">ชื่อสถานะที่ Site &nbsp;</span>
                                             <input type="text" name="name" placeholder="Site Name" class="form-control" required>
                                         </div>
                                         <div class="form-group input-group">
-                                            <span class="input-group-addon">Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <span class="input-group-addon">ที่อยู่&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                             <input type="text" name="location" placeholder="Address Site" class="form-control" required>
                                         </div>
                                         <div class="form-group input-group">
-                                            <span class="input-group-addon">Mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <span class="input-group-addon">อี-เมล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                             <input type="text" name="mail" placeholder="E-Mail Address" class="form-control" required>
                                         </div>
                                         <div class="form-group input-group">
-                                            <span class="input-group-addon">Contact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <span class="input-group-addon">เบอร์โทร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                             <input type="text" name="tel" placeholder="Contact Number" class="form-control" required>
                                         </div>
                                         <div class="form-group input-group">
@@ -74,7 +84,7 @@
                                         </div>
                                        <br /> 
                                      <div class="form-group input-group">                                        
-                                        <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;Save&nbsp;</button>&nbsp;&nbsp;&nbsp;                                        <button id="btnSave" class="btn btn-danger" type="reset"><i class="fa fa-times"></i>&nbsp;Cancel&nbsp;</button></a>
+                                        <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;บันทึก&nbsp;</button>&nbsp;&nbsp;&nbsp;<button id="btnSave" class="btn btn-danger" type="reset"><i class="fa fa-times"></i>&nbsp;ยกเลิก&nbsp;</button></a>
                                     </div> 
                                     </form>
 		                        </div>		                        

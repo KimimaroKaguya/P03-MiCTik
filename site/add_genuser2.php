@@ -20,23 +20,35 @@
 
 <body>
  <!-- Page Content -->
+ <div class="content-wrapper"> 
+            <section class="content-header">
+                  <h1>
+                    Kthai Team
+                    <small>Desing By Kthai Team</small>
+                  </h1>
+                  <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+                    <li class="active">Hotspot</li>
+                    <li class="active">Add Gennarage User A-Z</li>
+                  </ol>
+            </section>
       <section class="content">
 
             <div class="row">
-                <div class= "col-md-6 col-md-offset-3">
-		                   <div class="box box-solid box-primary">                            
+                <div class="col-md-12">
+		                   <div class="panel panel-default">                           
 		                         <div class="box-header">
-		                             <h3 class="box-title"><i class="fa fa-users"></i> สร้าง ผู้ใช้แบบกลุ่ม A-Z </h3>    
+		                             <h3 class="box-title"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;&nbsp;เพิ่มผู้ใช้งานอินเตอร์เน็ต แบบกลุ่ม A-Z </h3>    
 		                        </div>
 		                        <div class="panel-body">
 		                           <form id="add_user" action="con_genuser2.php" method="post">
                                   		<div class="form-group input-group">
                                             <span class="input-group-addon"><strong>คำนำหน้าผู้ใช้</strong>&nbsp;</span>
-                                            <input name="prefix" type="text" class="form-control" maxlength="3" placeholder="ภาษาอังกฤษเท่านั้นตัวอย่าง PT (สูงสุด 3 ตัวอักษร)">
+                                            <input name="prefix" type="text" class="form-control" maxlength="3" placeholder="กรอกเป็นภาษาอังกฤษเท่านั้น ตัวอย่าง : NB (สูงสุด 3 ตัวอักษร)">
                                      </div>
                                         <div class="form-group input-group">
-                                            <span class="input-group-addon"><strong>จำนวน</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                            <input type="text" name="total" placeholder="Generate Total" class="form-control" required>
+                                            <span class="input-group-addon"><strong>จำนวนผู้ใช้งาน</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <input type="text" name="total" placeholder="กรุณากรอกเป็นตัวเลข" class="form-control" required>
                                      </div>
                                      <div class="form-group input-group">
                                             <span class="input-group-addon"><strong>จำนวนชื่อผู้ใช้</strong></span>
@@ -65,7 +77,7 @@
                                             </select>
                                      </div>
                                         <div class="form-group input-group">
-                                            <span class="input-group-addon"><strong>แพกเกจเลือกให้ตรง</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <span class="input-group-addon"><strong>เลือกกลุ่มผู้ใช้งาน</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                             <select class="form-control" name="profile" size="1" id="profile">
                                             	<?php
 													$num =count($ARRAY);
@@ -76,9 +88,14 @@
 												?>
                                             </select>
                                      </div>                                        
-                                      
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon"><strong>Status&nbsp;&nbsp;&nbsp;</strong></span>
+                                            <input type="text" name="status" placeholder="หมายเหตุ" class="form-control" required>
+                                    </div>  
                                      <div class="form-group input-group">                                        
-                                        <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;Save&nbsp;</button>&nbsp;&nbsp;&nbsp;                                        <button id="btnSave" class="btn btn-danger" type="reset"><i class="fa fa-times"></i>&nbsp;Reset&nbsp;</button></a>
+                                        <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;Save&nbsp;</button>&nbsp;&nbsp;&nbsp;  
+                                        <button id="btnReset" class="btn btn-warning" type="reset"><i class="fa fa-undo"></i>&nbsp;Reset&nbsp;</button></a>  &nbsp;&nbsp;&nbsp;                                     
+                                        <button id="btnCancel" class="btn btn-danger" type="cancel" Onclick="javascript:history.back()"><i class="fa fa-times"></i>&nbsp;Cancel&nbsp;</button></a>
                                     </div> 
                                   </form>
 		                        </div>		                        
@@ -91,5 +108,13 @@
         
             </section>
             <!-- /#wrapper -->
-</body>
+</div>
+  <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Desing By</b> Kthai Team
+        </div>
+    <strong>Copyright &copy; 2016 - <?php echo date("Y");?> <a href="#">Kthai Team</a>.</strong> All rights
+  </footer>
+  </body>
+
 </html>
