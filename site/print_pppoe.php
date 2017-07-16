@@ -5,9 +5,8 @@
 	
     echo"<body onload=\"window.print();\"> ";
     
-	
-	
-	$sql = mysql_query("SELECT * FROM mt_gen_pppoe WHERE date='".$_GET['id']."'");
+	$user=$_GET['name'];
+	$sql = mysql_query("SELECT * FROM mt_gen_pppoe WHERE user = '".$user."'");
 		
 		echo"<table border=\"1\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
 		$intRows = 0;
@@ -15,7 +14,7 @@
 		{
 			$intRows++;
 			echo "<td width=100px>";
-			echo "<img src='../qrcode/".$result['qrcode']."' />";
+			echo "<img src='../qrcodepppoe/".$result['file']."' />";
 			echo "</td>";
 			echo "<td width=200px>"; 
 			
@@ -35,4 +34,6 @@
 			}
 		}
 		echo"</tr></table>";
+		echo "<meta http-equiv='refresh' content='0;url=pppoe_list.php' />";
+        exit();
 ?>		

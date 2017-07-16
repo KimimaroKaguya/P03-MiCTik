@@ -1,132 +1,141 @@
 <?php 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * Description 
- *
- * @author xeleniumz
- * 
- */
  include "../include/class.mysqldb.php";
  include "../include/config.inc.php";
  unset($_SESSION['EmpUser']);
  if(isset($_REQUEST['am_user'])){
-	 $user = $_REQUEST['am_user'];
-	 $pass = md5($_REQUEST['am_pass']);
-	 $conn = new mysqldb();
-	 $sql="SELECT * FROM am where am_user = '".$user."' and am_pass='".$pass."'";
-	 $query = $conn ->query($sql);
-	 $data = $conn->fetch($query);
-	 
-	 if($conn->num_rows()==0){
-		 echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
-	 }else{
-		unset($_SESSION['EmpUser']);
-		$_SESSION['APIUser']=$data->am_user;
-		$_SESSION['APIID']=$data->am_id;
-		echo "<meta http-equiv='refresh' content='0;url=index.php' />";
-		exit(0);
-	 }
+     $user = $_REQUEST['am_user'];
+     $pass = md5($_REQUEST['am_pass']);
+     $conn = new mysqldb();
+     $sql="SELECT * FROM am where am_user = '".$user."' and am_pass='".$pass."'";
+     $query = $conn ->query($sql);
+     $data = $conn->fetch($query);
+     
+     if($conn->num_rows()==0){
+         echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
+     }else{
+        unset($_SESSION['EmpUser']);
+        $_SESSION['APIUser']=$data->am_user;
+        $_SESSION['APIID']=$data->am_id;
+        echo "<meta http-equiv='refresh' content='0;url=index.php' />";
+        exit(0);
+     }
  }
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kthai Api Mikrotik ติดตั้ง Hotspot ราคาถูกแสนถูก 086-990-5488 www.k-thai.net Line : 2521770</title>
 
-    <title>API - Administrator</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-    <!-- MetisMenu CSS -->
-    <link href="../css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/f5.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
-    <!-- Custom CSS -->
-    <link href="../css/sb-admin-2.css" rel="stylesheet">
+    </head>
 
-    <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <body>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <style type="text/css">
-<!--
-.style1 {
-	color: #FF0000;
-	font-size: 12px;
-	font-weight: bold;
-}
-.style2 {
-	color: #006600;
-	font-size: 12px;
-	font-weight: bold;
-}
-.style3 {color: #000099}
-.style4 {
-	color: #006600;
-	font-weight: bold;
-}
--->
-    </style>
-</head>
-
-<body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><span class="style3"> ระบบจัดการ</span> Mikrotik <span class="style1">Mod</span> <span class="style2">by Lamyang Internet </span></h3>
-                  </div>
-                    <div class="panel-body">
-                        <form role="form" method="post" action="" name="login">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Username" name="am_user" type="text" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="am_pass" type="password" value="">
-                                </div>
-                                <div class="checkbox style4">กรุณาลงชื่อใช้งาน</div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" class="btn btn-lg btn-success btn-block">ตกลง</button>
-                            </fieldset>
-                        </form>
+        <!-- Top content -->
+        <div class="top-content">
+        	
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Kthai Technology รับติดตั้ง Mikrotik ติดตั้ง Host API Mikrotik ติดต่อ 0869905488</strong></h1>
+                            <div class="description">
+                            	<p>
+	                            	  www.k-thai.net   
+                            	</p>
+                            </div>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>Login</h3>
+                            		<p>กรุณากรอก Username Password เพื่อ Login เข้าใจงาน</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-lock"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+			                    <form role="form" action="" method="post" name ="login"class="login-form">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="form-username">Username</label>
+			                        	<input type="text" name="am_user" placeholder="Username..." class="form-username form-control" id="form-username">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-password">Password</label>
+			                        	<input type="password" name="am_pass" placeholder="Password..." class="form-password form-control" id="form-password">
+			                        </div>
+			                        <button type="submit" class="btn">Sign in</button>
+			                    </form>
+		                    </div>
+                        </div>
+                    </div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 social-login">
+                        	<h3>...or login with:</h3>
+                        	<div class="social-login-buttons">
+	                        	<a class="btn btn-link-2" href="#">
+	                        		<i class="fa fa-facebook"></i> Facebook
+	                        	</a>
+	                        	<a class="btn btn-link-2" href="#">
+	                        		<i class="fa fa-twitter"></i> Twitter
+	                        	</a>
+	                        	<a class="btn btn-link-2" href="#">
+	                        		<i class="fa fa-google-plus"></i> Google Plus
+	                        	</a>
+                        	</div>
+                        </div>
+                    </div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->                    
                 </div>
             </div>
+            
         </div>
-    </div>
 
-    <!-- jQuery Version 1.11.0 -->
-    <script src="../js/jquery-1.11.0.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../js/plugins/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../js/sb-admin-2.js"></script>
-
-</body>
+    </body>
 
 </html>

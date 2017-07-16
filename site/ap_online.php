@@ -19,15 +19,17 @@ header("Refresh: 60; URL=$url1");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-    <section>
-        <div id="page-wrapper">
-           <br />
+
+<!-- Page Content -->
+<div class="content-wrapper">   
+        <section class="content">       
+ <!-- Page Content -->
             <div class="row">
-                <div class="col-md-offset-3 col-md-8">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a href="index.php?opt=useronline"><button type="button"class="btn btn-success"><i class="fa fa-wifi"></i> แสดงรายละเอียดของอุปกรณ์ที่กำลังใช้งานขณะนี้</button></a>
-                        </div>
+                                    <div><h4><i class="fa fa-wifi"></i> อุปกรณ์ที่กำลังต่อพ่วงอยู่</h4></div>
+                                </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -40,7 +42,7 @@ header("Refresh: 60; URL=$url1");
                                             <th>ไอพีที่ใช้งาน</th>
                                             <th>เลขหมายเครื่อง</th>
                                             <th>เวอร์ชั่น</th>
-											<th>รวมเวลาใช้งาน</th>
+                                            <th>รวมเวลาใช้งาน</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -64,9 +66,9 @@ header("Refresh: 60; URL=$url1");
                                                             echo "<td>".$ARRAY[$i]['identity']."</td>";                                                     
                                                             echo "<td>".$ARRAY[$i]['address']."</td>";
                                                             echo "<td>".$ARRAY[$i]['mac-address']."</td>";
-															echo "<td>".$ARRAY[$i]['version']."</td>";
-															echo "<td>".$ARRAY[$i]['uptime']."</td>";
-                                                            echo "<td>";
+                                                            echo "<td>".$ARRAY[$i]['version']."</td>";
+                                                            echo "<td>".$ARRAY[$i]['uptime']."</td>";
+                                                           /* echo "<td>";
                                                         for($ii=0; $ii<$num2; $ii++){
                                                                 if($ARRAY2[$ii]['name']==$ARRAY[$i]['user']){
                                                                     echo $ARRAY2[$ii]['start-date'].' '.$ARRAY2[$ii]['start-time'];
@@ -93,18 +95,26 @@ header("Refresh: 60; URL=$url1");
                                                         }       echo "</td>";
                                                                                                                    
                                                            
-                                                    
+                                                    */
                                                     }
                                                 ?>
                                                                                                                                                                               
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                        </div>    
+                        <!-- /#page-wrapper -->
                     </div>
                 </div>
-            </div>                    
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Desing By</b> Manas Panjai
         </div>
-        <!-- /#page-wrapper -->
+    <strong>Copyright &copy; 2016 - <?php echo date("Y");?> <a href="#">โรงเรียนหนองบัว</a>.</strong> All rights
+  </footer>
+
 </body>
 </html>

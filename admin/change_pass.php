@@ -28,31 +28,41 @@
 
 <body>
  <div class="content-wrapper">
+ 		<section class="content-header">
+		      <h1>
+		        โปรแกรมบริหารจัดการอินเตอร์เน็ต
+		        <small>By Kthai Technology </small>
+		      </h1>
+		      <ol class="breadcrumb">
+		        <li><a href="#"><i class="fa fa-dashboard"></i>หน้าแรก</a></li>
+		        <li class="active">Chang Password</li>
+		      </ol>
+    	</section>
         <section class="content">
 
             <div class="row">
-                <div class= "col-md-6 col-md-offset-3">
-		                     <div class="box box-solid box-primary">                             
+                <div class="col-md-12">
+		                     <div class="box box-solid box-success">                             
 		                        <div class="box-header">
-		                            <h3 class="box-title"><i class="fa fa-pencil"></i>Change Password</h3>
+		                            <h3 class="box-title"><i class="fa fa-pencil"></i>เปลี่ยนรหัสผ่าน ของ <?php echo ($_SESSION['APIUser']); ?><?php echo ($_SESSION['EmpUser']); ?></h3>
 		                        </div>
 		                         <div class="box-body">
 		                           <form id="change_pass" action="" method="post">                                   		
                                         <div class="form-group input-group">
-                                            <span class="input-group-addon">Old Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <span class="input-group-addon">รหัสผ่านเก่า&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                             <input type="password" name="old" placeholder="Old Password" class="form-control" required>
                                         </div>
                                         <div class="form-group input-group">
-                                            <span class="input-group-addon">New Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <span class="input-group-addon">รหัสผ่านใหม่&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                             <input type="password" name="new" placeholder="New Password" class="form-control" required>
                                         </div>
                                         <div class="form-group input-group">
-                                            <span class="input-group-addon">Confirm Password</span>
+                                            <span class="input-group-addon">ยืนยันรหัสผ่าน</span>
                                             <input type="password" name="con" placeholder="Confirm Password" class="form-control" required>
                                         </div>                                          
                                         
                                      <div class="form-group input-group">                                        
-                                        <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;Save&nbsp;</button>&nbsp;&nbsp;&nbsp;                                        <button id="btnSave" class="btn btn-danger" type="reset"><i class="fa fa-times"></i>&nbsp;Cancel&nbsp;</button></a>
+                                        <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;บันทึก&nbsp;</button>&nbsp;&nbsp;&nbsp;<button id="btnSave" class="btn btn-danger" type="reset"><i class="fa fa-times"></i>&nbsp;ยกเลิก&nbsp;</button></a>
                                     </div> 
                                     </form>
 		                        </div>		                        

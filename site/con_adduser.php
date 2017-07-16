@@ -8,19 +8,21 @@
 	$username=$_REQUEST['username'];
 	$password=$_REQUEST['password'];
 	$profiles=$_REQUEST['profile'];	
+	$status=$_REQUEST['status'];
 	$id=$_SESSION['id'];
-	$date=date('Y-m-d H:i:s');
+	//$date=date('Y-m-d H:i:s');
 	if($username != ""){
 		$ARRAY = $API->comm("/ip/hotspot/user/add", array(
 									  "name"     => $username,
 									  "password" => $password,	
-									  "profile"  => $profiles,	
+									  "profile"  => $profiles,
+									  "comment"  => $status,	
 							));
 		$file=$username.".png";
 		QRcode::png('http://'.$ip.'/login?username='.$username.'&password='.$password.'', '../qrcode/'.$file.'');
-		mysql_query("INSERT INTO mt_gen VALUE('".$username."','".$password."','".$profiles."','".$file."','".$date."','".$id."')");
+		mysql_query("INSERT INTO mt_gen VALUE('".$username."','".$password."','".$profiles."','".$file."',NOW(),'".$id."','".$status."')");
 		echo "<script>alert('ระบบได้ทำการเพิ่มผู้ใช้งาน Hotspot เรียบร้อยแล้ว.')</script>";
-		echo "<meta http-equiv='refresh' content='0;url=index.php?opt=user_list' />";
+		echo "<meta http-equiv='refresh' content='0;url=index.php?opt=userall' />";
 		exit();
 	}
 ?>

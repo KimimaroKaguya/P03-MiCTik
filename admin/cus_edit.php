@@ -19,16 +19,27 @@
 </head>
 
 <body>
+ <div class="content-wrapper">   
+             <section class="content-header">
+              <h1>
+                โปรแกรมบริหารจัดการอินเตอร์เน็ต โรงเรียน
+                <small>Desing Kthai Technology</small>
+              </h1>
+              <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+                <li class="active">Admin</li>
+                <li class="active">Edit</li>
+              </ol>
+            </section>
+        <section class="content">       
  <!-- Page Content -->
-
             <div class="row">
-                <div class="col-lg-12"><br/>
-                        <div class="col-lg-2"></div>
-		                <div class="col-lg-8">
-		                    <div class="panel panel-info">                              
-		                        <div class="panel-heading">
-									แก้ไขข้อมูลผู้ดูแลระบบ
-		                        </div>
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                                    <div><h4><i class="fa fa-users"></i> ผู้ใช้งานในระบบ Hotspot ทั้งหมด</h4></div>
+                                </div>
+                        <!-- /.panel-heading -->
 		                        <div class="panel-body">
 		                           <form id="edit_site" action="" method="post">   
 										<?php																														
@@ -60,6 +71,10 @@
                     <!-- /.row -->
                 </div>
                 <!-- /#page-wrapper -->
-        
+            </section>
+    </div>
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+    
 </body>
 </html>

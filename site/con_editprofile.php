@@ -13,9 +13,12 @@
 	$keep=$_REQUEST['keep'];
 	$auto=$_REQUEST['auto'];
 //	$list=$_REQUEST['address'];
-	if($name != ""){
+	if($profile != ""){
+		mysql_query("UPDATE mt_profile SET pro_name='".$_REQUEST['name']."', pro_session='".$_REQUEST['session']."', pro_idle='".$_REQUEST['idle']."',pro_keepalive='".$_REQUEST['keep']."', pro_autorefresh='".$_REQUEST['auto']."',pro_users='".$_REQUEST['use']."',pro_limit='".$_REQUEST['limit']."' WHERE pro_name='".$profile."'");
 	//	mysql_query("UPDATE mt_profile SET name='".$name."','".$local."','".$remote."','".$limit."'");
 	//	mysql_query("UPDATE mt_profile SET ('".$name."','".$session."','".$idle."','".$keep."','".$auto."','".$uptime."','".$use."','".$limit."','".$list."')");
+		
+
 		$ARRAY = $API->comm("/ip/hotspot/user/profile/set", array(
 								"name" => $name,
 								"session-timeout" => $session,

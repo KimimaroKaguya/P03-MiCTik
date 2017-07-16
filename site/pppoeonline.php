@@ -19,22 +19,34 @@ header("Refresh: 60; URL=$url1");
 </head>
 <body>
 
-        <section class="content">
-           <div class="row">
-                <div class="col-md-12">
-                        <div class="col-md-3"></div>
-		                <div class="col-md-8">
-                    <div class="box box-solid box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title"><i class="fa fa-bolt" aria-hidden="true"></i> PPPOE Online</h3>
-                        </div>
+<!-- Page Content -->
+<div class="content-wrapper"> 
+<section class="content-header">
+              <h1>
+                Kthai Team
+                <small>Desing By Kthai Team</small>
+              </h1>
+              <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+                <li class="active">PPPoe</li>
+                <li class="active">View Secret Online</li>
+              </ol>
+            </section>   
+        <section class="content">       
+ <!-- Page Content -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                                    <div><h4><i class="fa fa-wifi"></i> ผู้กำลังใช้งานสำหรับ PPPoE</h4></div>
+                                </div>
                         <!-- /.panel-heading -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>     
-                                        	<th>No.</th>
+                                            <th>No.</th>
                                             <th>ชื่อผู้ใช้งาน</th>
                                             <th>รูปแบบการให้บริการ</th>
                                             <th>เลขหมายไอพีที่ใช้งาน</th>
@@ -46,32 +58,59 @@ header("Refresh: 60; URL=$url1");
                                     <tbody>
                                         
                                             
-												<?php
-													$num =count($ARRAY);													
-													for($i=0; $i<$num; $i++){
-													$no=$i+1;
+                                                <?php
+                                                    $num =count($ARRAY);                                                    
+                                                    for($i=0; $i<$num; $i++){
+                                                    $no=$i+1;
                                                     $bytes =  $ARRAY[$i]['bytes-out']/1048576;
-													echo "<tr>";
-														echo "<td>".$no."</td>";
-														echo "<td>".$ARRAY[$i]['name']."</td>";
+                                                    echo "<tr>";
+                                                        echo "<td>".$no."</td>";
+                                                        echo "<td>".$ARRAY[$i]['name']."</td>";
                                                         echo "<td>".$ARRAY[$i]['service']."</td>";
-														echo "<td>".$ARRAY[$i]['address']."</td>";
-														echo "<td>".$ARRAY[$i]['caller-id']."</td>";
-														echo "<td>".$ARRAY[$i]['uptime']."</td>";
-														echo "<td><a href='pppoeonline_del.php?user=".$i."'><button type=\"button\" class=\"btn btn-danger\"><i class=\"fa fa-power-off\"></i></button></a>";
+                                                        echo "<td>".$ARRAY[$i]['address']."</td>";
+                                                        echo "<td>".$ARRAY[$i]['caller-id']."</td>";
+                                                        echo "<td>".$ARRAY[$i]['uptime']."</td>";
+                                                        echo "<td><a href='pppoeonline_del.php?user=".$i."'><button type=\"button\" class=\"btn btn-danger\"><i class=\"fa fa-power-off\"></i></button></a>";
 
-													echo "</tr>";
-													}
-												?>
+                                                    echo "</tr>";
+                                                    }
+                                                ?>
                                                                                                                                                                               
                                     </tbody>
                                 </table>
                             </div>
                            
         </div>
-        <!-- /#page-wrapper -->
-
+                        <!-- /#page-wrapper -->
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Desing By</b> Kthai Team
+        </div>
+    <strong>Copyright &copy; 2016 - <?php echo date("Y");?> <a href="#">Kthai Team</a>.</strong> All rights
+  </footer>
+  <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+  <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <script src="../dist/js/demo.js"></script>  
+  <script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
+
     
 </body>
 </html>

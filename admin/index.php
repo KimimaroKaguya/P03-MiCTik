@@ -6,13 +6,13 @@
 		exit(0);
 	}
 	unset($_SESSION['id']);
-	require('../config/routeros_api.class.php');
-	include("../include/class.mysqldb.php");
-	include("../include/config.inc.php");	
+	require('../config/routeros_api.class.php'); // คำสั่งเรียกใช้ Class ภายใน เราเตอร์ มาแสดง บนเว็บไซต์
+	include("../include/class.mysqldb.php");     // คำสั่งตรอบสอบการเชื่อมต่อ Mysql
+	include("../include/config.inc.php");	       // คำสั่งเชื่อมต่อ Mysql ใน Database
 	
-	if(!empty($_GET['did'])){
-		mysql_query("DELETE FROM mt_config WHERE mt_id='".$_GET['did']."'");
-		echo "<meta http-equiv=\"refresh\" content=\"0;url=index.php\">";
+	if(!empty($_GET['did'])){ 
+		mysql_query("DELETE FROM mt_config WHERE mt_id='".$_GET['did']."'");   
+		echo "<meta http-equiv=\"refresh\" content=\"0;url=index.php\">";  
 		exit(0);
 	}	
 ?>
@@ -21,7 +21,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>MikrotikAPI | Dashboard</title>
+  <title>Admin Kthai Api Mikrotik ติดตั้ง Hotspot ราคาถูกแสนถูก 086-990-5488 www.k-thai.net Line : 2521770 </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -37,14 +37,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-</head>
+   <LINK REL="SHORTCUT ICON" HREF="../img/f5.ico"> 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -53,9 +46,9 @@
     <!-- Logo -->
     <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>D</b>UI</span>
+      <span class="logo-mini"><b>N</b>B</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Mikrotik</b>API</span>
+      <span class="logo-lg"><b>Kthai</b>Technology</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -77,7 +70,9 @@
 
     </nav>
   </header>
-
+  
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- เปิดส่วนแสดงข้อมูลบนเว็บไซต์ -->
 <body>
 
      <aside class="main-sidebar">
@@ -89,7 +84,7 @@
           <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo ($_SESSION['APIUser']); ?></p>
+          <p><?php echo ($_SESSION['APIUser']); ?><?php echo ($_SESSION['EmpUser']); ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -108,21 +103,44 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          <a href="index.php">
+            <i class="fa fa-dashboard"></i> <span>หน้าหลัก</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="index.php"><i class="fa fa-circle-o"></i> Dashboard Admin</a></li>
-            <li><a href="index.php?opt=add_site"><i class="fa fa-circle-o"></i> เพิ่มsiteงาน</a></li>
-			<li><a href="index.php?opt=edit_site"><i class="fa fa-circle-o"></i>แก้ไขsiteงาน</a></li>
-			<li><a href="index.php?opt=change_pass"><i class="fa fa-circle-o"></i>เปลี่ยนรหัสผ่าน</a></li>
-			<li><a href="index.php?opt=cus_add"><i class="fa fa-circle-o"></i>เพิ่มผู้ดูแล</a></li>
-          </ul>
         </li>
-		
+
+		    <li class="treeview">
+          <a href="index.php?opt=add_site">
+            <i class="glyphicon glyphicon-globe"></i>
+            <span>เพิ่มสถานที่บริหารจัดการ </span>
+           <span class="label label-primary pull-right"></span>
+          </a>
+        </li>
+
+        <li>
+              <a href="#"><i class="glyphicon glyphicon-user"></i></i> ผู้ดูแลระบบ </a>
+              <ul class="treeview-menu">
+                 <li><a href="index.php?opt=cus_add"><i class="fa fa-circle-o"></i> เพิ่มผู้ดูแลระบบ</a></li>
+                 <li><a href="index.php?opt=cus_list"><i class="fa fa-circle-o"></i> ดูจำนวนผู้ดูแลระบบ</a></li>
+              </ul>
+        </li>
+        <li class="treeview">
+              <a href="index.php?opt=change_pass">
+                <i class="glyphicon glyphicon-pencil"></i>
+                <span>เปลี่ยนรหัสผ่าน</span>
+                <span class="label label-primary pull-right"></span>
+              </a>
+
+        </li>
+
+        <li class="treeview">
+          <a href="../login.php">
+            <i class="glyphicon glyphicon-log-out"></i>
+            <span>ออกจากระบบ</span>
+           <span class="label label-primary pull-right"></span>
+          </a>
+        </li>
         
       </ul>
     </section>
@@ -133,11 +151,11 @@
        <div class="content-wrapper">
            <section class="content-header">
       <h1>
-        Dashboard
-        <small>Version 2.0</small>
+        Kthai Technology
+        <small>By Kthai Team </small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>หน้าแรก</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -146,9 +164,9 @@
            
 		<div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
+                    <div class="box box-solid box-default">  
                         <div class="panel-heading style4">
-                              <span class="style5">ข้อมูลไซต์งาน</span>
+                              <span class="style5">ที่อยู่ Server Mikrotik</span>
 							  
                           <div class="pull-right">
                             <a href="index.php"><img src="../img/refresh.png" width="20" title="Refresh"></a>                           
@@ -162,14 +180,14 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>     
-                                        	<th><span class="style3">ลำดับ</span></th> 
-                                            <th><span class="style3">ชื่อไซต์งาน</span></th> 
-                                            <th><span class="style3">สถานที่</span></th>                                                                       	
-                                            <th><span class="style3">ซีพียู</span></th>                                           
-                                            <th><span class="style3">แรม</span></th>
-                                            <th><span class="style3">ฮาร์ดดิส</span></th>                                            
-                                            <th><span class="style3">สถานะ</span></th>
-                                   			<th><span class="style3">จัดการ</span></th>
+                                        	  <th><center><span class="style3">ลำดับ</span></center></th> 
+                                            <th><center><span class="style3">ชื่อสถานที่บริหารจัดการ</span></center></th> 
+                                            <th><center><span class="style3">สถานที่</span></center></th>                                                                       	
+                                            <th><center><span class="style3">ซีพียู</span></center></th>                                           
+                                            <th><center><span class="style3">แรม</span></center></th>
+                                            <th><center><span class="style3">ฮาร์ดดิส</span></center></th>                                            
+                                            <th><center><span class="style3">สถานะ</span></center></th>
+                                   			    <th><center><span class="style3">จัดการ</span></center></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -210,10 +228,10 @@
 															}																	
 														echo "</td>";	
 																											
-														echo "<td><a href='../site/site_conn.php?id=".$result['mt_id']."&conn=".$conn."'><img src=\"../img/enter.png\" width=\"20\" title=\"Enter To Site\"></a>
-														<a href='index.php?opt=edit_site&id=".$result['mt_id']."'><img src=\"../img/edit.png\" width=\"20\"   title=\"Edit Site\"></a>
+														echo "<td><a href='../site/site_conn.php?id=".$result['mt_id']."&conn=".$conn."'><button type=\"button\" class=\"btn btn-success\" title=\"เข้าบริหารจัดการ\"><i class=\"fa fa-paper-plane-o\"></i></button></a>
+														<a href='index.php?opt=edit_site&id=".$result['mt_id']."'><button type=\"button\" class=\"btn btn-info\" title=\"แก้ไข\"><i class=\"fa fa-edit\"></i></button></a>
 														<a href='javascript:void(0)' onClick=\"JavaScript:if(confirm('คุณต้องการลบหรือไม่!!!')==true)
-                {window.location='index.php?did=".$result['mt_id']."'}\"><img src=\"../img/delete.png\" width=\"20\" title=\"Delete Site\"></a>";												
+                {window.location='index.php?did=".$result['mt_id']."'}\"><button type=\"button\" class=\"btn btn-danger\" title=\"ลบ\"><i class=\"fa fa-trash-o\"></i></button></a>";												
 													echo "</td>";
 													echo "</tr>";
 													}
@@ -295,28 +313,21 @@
 <!-- ChartJS 1.0.1 -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dist/js/pages/dashboard2.js"></script>
-<!-- AdminLTE for demo purposes -->
-
-    <!-- jQuery Version 1.11.0 -->
-   
-
-    <!-- Bootstrap Core JavaScript -->
-    
-
-    <!-- Metis Menu Plugin JavaScript -->
-    
-	 <!-- DataTables JavaScript -->
+ <LINK REL="SHORTCUT ICON" HREF="../img/nongbua.ico"> 
    
     <script src="../dist/js/demo.js"></script>
-    <!-- Custom Theme JavaScript -->
-    
-    
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
         $('#dataTables-example').dataTable();
     });
-    </script>   
+    </script>  
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Desing By</b> Kthai Team 
+        </div>
+    <strong>Copyright &copy; 2016 - <?php echo date("Y");?> <a href="#">KThai Technology</a>.</strong> All rights
+  </footer>
 
 </body>
 
