@@ -1,8 +1,8 @@
 <?php
 	# configuration for database
 	$_config['database']['hostname'] = "localhost";
-	$_config['database']['username'] = "apt";
-	$_config['database']['password'] = "apt1234";
+	$_config['database']['username'] = "root";
+	$_config['database']['password'] = "root1234";
 	$_config['database']['database'] = "api3";
 	
 	# connect the database server
