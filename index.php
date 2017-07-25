@@ -1,8 +1,8 @@
 <?php
     session_start();  
     /************hardcode*******************/
-    $_SESSION['EmpUser'] = 'admin'; 
-    $_SESSION['EmpId']=1;
+    // $_SESSION['EmpUser'] = 'admin'; 
+    // $_SESSION['EmpId']=1;
     /************hardcode*******************/ 
     if($_SESSION['EmpUser'] == ''){
         echo "<meta http-equiv='refresh' content='0;url=login.php' />";
@@ -202,9 +202,12 @@
                               <?php
                                                     $id=$_SESSION['EmpId'];                  
                                                     $sql = "SELECT mt_id,mt_ip,mt_user,mt_pass,mt_name,mt_location FROM mt_config WHERE mt_id ='".$id."'";
-                                                    $result = mysqli_query($conn,$sql); 
+                                                    //$result = mysqli_query($conn,$sql); 
+                                                    $query = $conn->query($sql);   
+                                                    $datarows =$conn->num_rows();
                                                     $no = 0;
-                                                    while($result=mysqli_fetch_array($result))
+                                                    //while($result = mysqli_fetch_array($query))
+                                                    while($result = $conn->fetch_array($sql))
                                                     {
                                                     $no++;
                                                     $API = new routeros_api();              

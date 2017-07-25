@@ -14,8 +14,8 @@
 
 			# configuration for database		
 			define('DB_SERVER', 'localhost');
-			define('DB_USERNAME', 'root');
-			define('DB_PASSWORD', 'root1234');
+			define('DB_USERNAME', 'apt');
+			define('DB_PASSWORD', 'apt1234');
 			define('DB_DATABASE', 'api3');
 			# connect the database server
 			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
@@ -36,10 +36,10 @@
 		}
 		public function query($sql) {	
 			# configuration for database		
-			define('DB_SERVER', 'localhost');
-			define('DB_USERNAME', 'root');
-			define('DB_PASSWORD', 'root1234');
-			define('DB_DATABASE', 'api3');
+			// define('DB_SERVER', 'localhost');
+			// define('DB_USERNAME', 'apt');
+			// define('DB_PASSWORD', 'apt1234');
+			// define('DB_DATABASE', 'api3');
 			# connect the database server
 			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 			if($this->link) {
@@ -54,10 +54,10 @@
 		}
 		public function fetch($query) {
 			# configuration for database		
-			define('DB_SERVER', 'localhost');
-			define('DB_USERNAME', 'root');
-			define('DB_PASSWORD', 'root1234');
-			define('DB_DATABASE', 'api3');
+			// define('DB_SERVER', 'localhost');
+			// define('DB_USERNAME', 'apt');
+			// define('DB_PASSWORD', 'apt1234');
+			// define('DB_DATABASE', 'api3');
 			# connect the database server
 			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 			if ($results = mysqli_query($this->link, $query)) {
@@ -65,12 +65,19 @@
 				return $result = mysqli_fetch_object($results);				
 			}
 		}
+		public  function fetch_array($query)
+		{
+			$this->link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+			if($results = mysqli_query($this->link, $query)){
+				return $result = mysqli_fetch_array($results);
+			}
+		}
 		public function num_rows() {
 			# configuration for database		
-			define('DB_SERVER', 'localhost');
-			define('DB_USERNAME', 'root');
-			define('DB_PASSWORD', 'root1234');
-			define('DB_DATABASE', 'api3');
+			// define('DB_SERVER', 'localhost');
+			// define('DB_USERNAME', 'apt');
+			// define('DB_PASSWORD', 'apt1234');
+			// define('DB_DATABASE', 'api3');
 			# connect the database server
 			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 			if($this->link) {

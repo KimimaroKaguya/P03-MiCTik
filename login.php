@@ -7,21 +7,25 @@
      $user = $_REQUEST['am_user'];
      $pass = md5($_REQUEST['am_pass']);
      $conn = new mysqldb();
-     $sql="SELECT * FROM am where am_user = '".$user."' and am_pass='".$pass."'";
+     $sql="SELECT * FROM em where em_user = '".$user."' and em_pass='".$pass."'";
      $query = $conn->query($sql);     
      $data = $conn->fetch($sql);
-
      $datarows =$conn->num_rows();
-     echo $sql . '-';
-     echo $query. '-';
+
+    //  echo $sql . '-';
+    //  echo $query. '-';
      echo $datarows. '- : ';  
-     echo $data->am_user.' \\\ '  ;  
+    //  echo $data->am_user.' \\\ '  ;  
      if($conn->num_rows()==0){
          echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
      }else{
-        $_SESSION['EmpUser']=$data->am_user;
-        $_SESSION['EmpId']=$data->mt_id;
-        $_SESSION['EmpID']=$data->am_id;
+        // $_SESSION['EmpUser'] = $data->em_user;
+		// $_SESSION['EmpId'] = $data->mt_id;
+		// $_SESSION['EmpID'] = $data->em_id;
+        $_SESSION['EmpUser'] = $data['em_user'];
+        $EmpUser = $_SESSION['EmpUser'];
+		$_SESSION['EmpId'] = $data['mt_id'];
+		$_SESSION['EmpID'] = $data['em_id'];
         unset($_SESSION['APIUser']);
         // echo "<meta http-equiv='refresh' content='0;url=index.php' />";
         /*ส่วนเปิด คำสั่ง login แล้วไปหน้า แดชบอร์ด */
@@ -30,10 +34,10 @@
         //$_SESSION['APIID']=$data->am_id;
         //echo "<meta http-equiv='refresh' content='0;url=admin/index.php' />";
         /*ส่วนปิด คำสั่ง login แล้วไปหน้า แดชบอร์ด */
-        echo $_SESSION['EmpUser'].' : ';
+        echo $EmpUser.' : ';
         echo $_SESSION['EmpId'].' < ';
         echo $_SESSION['EmpID'].' > ';
-        echo "<meta http-equiv='refresh' content='0;url=index.php' />";
+       // echo "<meta http-equiv='refresh' content='0;url=index.php' />";
         exit(0);
         
      }
