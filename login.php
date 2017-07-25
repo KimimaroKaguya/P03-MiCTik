@@ -78,10 +78,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong><font color ="brown">Kthai Mikrotik API</font></strong></h1>
+                            <h1><strong><font color ="brown"> Mikrotik API</font></strong></h1>
                             <div class="description">
                             	<p>
-	                            	<font color ="brown">Kthai Technology By Korn Chomdee Kthai API Mikrorik รับติดตั้ง Mikrotik HotSpot ราคาถูก 086-990-5488 www.k-thai.net </font>
+	                            	<font color ="brown">text</font>
                             	</p>
                             </div>
                         </div>
