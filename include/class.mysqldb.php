@@ -68,7 +68,7 @@
 		public  function fetch_array($query)
 		{
 			$this->link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-			if($results = mysqli_query($this->link, $query)){
+			if($results = mysqli_query($this->link,$query)){
 				return $result = mysqli_fetch_array($results);
 			}
 		}

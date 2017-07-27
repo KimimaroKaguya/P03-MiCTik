@@ -1,4 +1,5 @@
 <?php
+    
     session_start();  
     /************hardcode*******************/
     // $_SESSION['EmpUser'] = 'admin'; 
@@ -200,14 +201,16 @@
                             </thead>
                             <tbody>
                               <?php
-                                                    $id=$_SESSION['EmpId'];                  
-                                                    $sql = "SELECT mt_id,mt_ip,mt_user,mt_pass,mt_name,mt_location FROM mt_config WHERE mt_id ='".$id."'";
-                                                    //$result = mysqli_query($conn,$sql); 
+                                                    $id=$_SESSION['EmpId'];    
+                                                    //echo $id;              
+                                                    $sql = "SELECT mt_id,mt_ip,mt_user,mt_pass,mt_name,mt_location FROM mt_config WHERE mt_id = ".$id." ";
+                                                    // $query = mysqli_query($conn,$sql); 
+                                                    //echo $sql;
                                                     $query = $conn->query($sql);   
                                                     $datarows =$conn->num_rows();
                                                     $no = 0;
-                                                    //while($result = mysqli_fetch_array($query))
-                                                    while($result = $conn->fetch_array($sql))
+                                                    // while($result = mysqli_fetch_array($query))
+                                                    while($result = $conn->fetch_array($sql) )
                                                     {
                                                     $no++;
                                                     $API = new routeros_api();              
@@ -218,7 +221,7 @@
                                                         $hdd =  $ARRAY['0']['free-hdd-space']/1048576;                                              
                                                          }                                                                                                               
                                                         echo "<tr>";
-                                                        echo "<td>".$no."</td>";                                                                                                                                                            
+                                                        echo "<td>".$no."</td>";
                                                         echo "<td>".$result['mt_name']."</td>";                                                     
                                                         echo "<td>".$result['mt_location']."</td>";
                                                         echo "<td>".$ARRAY['0']['cpu-load']."%</td>";                                                                                                                                                                               
