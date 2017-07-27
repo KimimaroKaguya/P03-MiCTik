@@ -7,27 +7,33 @@
      $user = $_REQUEST['am_user'];
      $pass = md5($_REQUEST['am_pass']);
      $conn = new mysqldb();
-     $sql="SELECT * FROM em where em_user = '".$user."' and em_pass='".$pass."'";
+     $sql="SELECT * FROM em WHERE  em_user = '".$user."' AND  em_pass='".$pass."'";
      $query = $conn->query($sql);     
-     $data = $conn->fetch($query);
+     $data = $conn->fetch($sql);
      $datarows =$conn->num_rows();
-     echo $sql . '\n';
-     echo $query. '\n';
-     echo $datarows. '\n';
+
+    //  echo $sql . '-';
+    //  echo $query. '-';
+    // echo $datarows. '- : ';  
+    //  echo $data->am_user.' \\\ '  ;  
      if($conn->num_rows()==0){
          echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
      }else{
-        $_SESSION['EmpUser']=$data->em_user;
-        $_SESSION['EmpId']=$data->mt_id;
-        $_SESSION['EmpID']=$data->em_id;
+        $_SESSION['EmpUser'] = $data->em_user;
+		$_SESSION['EmpId'] = $data->mt_id;
+		$_SESSION['EmpID'] = $data->em_id;
         unset($_SESSION['APIUser']);
-        echo "<meta http-equiv='refresh' content='0;url=index.php' />";
+        // echo "<meta http-equiv='refresh' content='0;url=index.php' />";
         /*ส่วนเปิด คำสั่ง login แล้วไปหน้า แดชบอร์ด */
         //unset($_SESSION['EmpUser']);
         //$_SESSION['APIUser']=$data->am_user;
         //$_SESSION['APIID']=$data->am_id;
         //echo "<meta http-equiv='refresh' content='0;url=admin/index.php' />";
         /*ส่วนปิด คำสั่ง login แล้วไปหน้า แดชบอร์ด */
+        // echo $_SESSION['EmpUser'].' : ';
+        // echo $_SESSION['EmpId'].' < ';
+        // echo $_SESSION['EmpID'].' > ';
+        echo "<meta http-equiv='refresh' content='0;url=index.php' />";
         exit(0);
         
      }
@@ -78,10 +84,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong><font color ="brown">Kthai Mikrotik API</font></strong></h1>
+                            <h1><strong><font color ="brown"> Mikrotik API</font></strong></h1>
                             <div class="description">
                             	<p>
-	                            	<font color ="brown">Kthai Technology By Korn Chomdee Kthai API Mikrorik รับติดตั้ง Mikrotik HotSpot ราคาถูก 086-990-5488 www.k-thai.net </font>
+	                            	<font color ="brown">text</font>
                             	</p>
                             </div>
                         </div>
@@ -140,7 +146,7 @@
         <!-- Javascript -->
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <!-- <script src="assets/js/jquery.backstretch.min.js"></script> -->
         <script src="assets/js/scripts.js"></script>
         
         <!--[if lt IE 10]>
