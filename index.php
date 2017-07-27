@@ -1,5 +1,5 @@
 <?php
-    
+    // New dev_all local
     session_start();  
     /************hardcode*******************/
     // $_SESSION['EmpUser'] = 'admin'; 
