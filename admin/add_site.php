@@ -1,13 +1,19 @@
-<?php				
+<?php	
+$conn = new mysqldb();			
 	if(!empty($_REQUEST['name'])){
-		$query=mysql_query("SELECT mt_id FROM mt_config WHERE name<>'".$_REQUEST['name']."'");
-		$rows=mysql_num_rows($query);
-		if($rows>0){
+		//$query=mysql_query("SELECT mt_id FROM mt_config WHERE name<>'".$_REQUEST['name']."'");
+        $sql="SELECT mt_id FROM mt_config WHERE name <> '".$_REQUEST['name']."'";
+        $query = $conn->query($sql);   
+		$//rows=mysql_num_rows($query);
+        $rows = $conn->num_rows();
+		if($rows > 0){
 			echo "<script language='javascript'>alert('Can not add site.')</script>";
 		}else{			
-		$sql_q="INSERT INTO mt_config(mt_id,mt_user,mt_pass,mt_ip,mt_name,mt_location,mt_mail,mt_tel,mt_gps) VALUES('','".$_REQUEST['user']."','".$_REQUEST['pass']."','".$_REQUEST['ip']."','".$_REQUEST['name']."','".$_REQUEST['location']."','".$_REQUEST['mail']."','".$_REQUEST['tel']."','".$_REQUEST['gps']."')";	
+		$sql ="INSERT INTO mt_config(mt_id,mt_user,mt_pass,mt_ip,mt_name,mt_location,mt_mail,mt_tel,mt_gps) 
+        VALUES('','".$_REQUEST['user']."','".$_REQUEST['pass']."','".$_REQUEST['ip']."','".$_REQUEST['name']."','".$_REQUEST['location']."','".$_REQUEST['mail']."','".$_REQUEST['tel']."','".$_REQUEST['gps']."')";	
 	
-		$sql=mysql_query($sql_q);
+		// $sql=mysql_query($sql_q);
+         $query = $conn->query($sql);
 			
 			echo "<script language='javascript'>alert('Save Done')</script>";
 			echo "<meta http-equiv=\"refresh\" content=\"0;url=index.php\">";
