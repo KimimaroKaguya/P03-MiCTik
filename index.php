@@ -202,7 +202,8 @@
                                                     $datarows =$conn->num_rows($sql);
                                                     $no = 0;
                                                     // while($result = mysqli_fetch_array($query))
-                                                    while($result = $conn->fetch_array2($sql))
+                                                    // while($result = $conn->fetch_array2($sql))
+                                                    while($result = mysqli_fetch_array($query))
                                                     {
                                                     $no++;
                                                     $API = new routeros_api();              
