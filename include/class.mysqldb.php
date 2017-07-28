@@ -17,14 +17,8 @@
 			// }
 			// $this->show_error(mysqli_error($this->link), "connect()");
 			// return false;
-
-			# configuration for database		
-			// define('DB_SERVER', 'localhost');
-			// define('DB_USERNAME', 'apt');
-			// define('DB_PASSWORD', 'apt1234');
-			// define('DB_DATABASE', 'api3');
-			# connect the database server
-			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+			# 20170728 New connect the database server
+			$this->link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 			if($this->link) {
 				mysqli_query($this->link,"SET NAMES 'utf-8'");
 				return true;
@@ -40,30 +34,15 @@
 			$this->show_error("Not connect the database before", "selectdb($database)");
 			return false;
 		}
-		public function query($sql) {	
-			# configuration for database		
-			// define('DB_SERVER', 'localhost');
-			// define('DB_USERNAME', 'apt');
-			// define('DB_PASSWORD', 'apt1234');
-			// define('DB_DATABASE', 'api3');
+		public function query($sql) {				
 			# connect the database server
-			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-			// if($this->link) {
-			// 	mysqli_query($this->link,"SET NAMES 'utf-8'");
-			// 	return true;
-			// }
-			// $this->show_error(mysqli_error($this->link), "connect() : query");			
+			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);					
 			if($this->link) {	
 				$this->query = mysqli_query($this->link,$sql);
 				return $this->query;
 			}		
 		}
-		public function fetch($query) {
-			# configuration for database		
-			// define('DB_SERVER', 'localhost');
-			// define('DB_USERNAME', 'apt');
-			// define('DB_PASSWORD', 'apt1234');
-			// define('DB_DATABASE', 'api3');
+		public function fetch($query) {			
 			# connect the database server
 			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 			if ($results = mysqli_query($this->link, $query)) {
@@ -80,27 +59,13 @@
 				
 			}
 		}
-		public function num_rows($query) {
-			# configuration for database		
-			// define('DB_SERVER', 'localhost');
-			// define('DB_USERNAME', 'apt');
-			// define('DB_PASSWORD', 'apt1234');
-			// define('DB_DATABASE', 'api3');
+		public function num_rows($query) {		
 			# connect the database server
 			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 			if($this->link) {
 				$results = mysqli_query($this->link,$query);
-				return  mysqli_num_rows($results);
-				//mysqli_query($this->link,"SET NAMES 'utf-8'");
-				//return true;
-			}
-			$this->show_error(mysqli_error($this->link), "connect() num_rows Errors");
-			return false;
-			if($this->link) {
-				return mysqli_num_rows($this->link,$this->query); 
-			}
-			if (mysqli_connect_errno()) {
-			return "Connect failed:";}
+				return  mysqli_num_rows($results);				
+			}			
 		}
 		public function show_error($errmsg, $func) {
 			echo "<b><font color=red>" . $func . "</font></b> : " . $errmsg . "<BR>\n";
