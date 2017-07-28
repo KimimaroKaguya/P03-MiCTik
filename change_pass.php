@@ -1,11 +1,15 @@
 <?php	
+    $conn = new mysqldb(); 
 	if(!empty($_REQUEST['old'])){
 		$id=$_SESSION['EmpID'];
 		$old=md5($_REQUEST['old']);
 		$new=md5($_REQUEST['new']);
 		$con=md5($_REQUEST['con']);		
-		$sql=mysql_query("SELECT em_pass FROM em WHERE em_pass='".$old."'");
-		$num=mysql_num_rows($sql);		
+		// $sql=mysql_query("SELECT em_pass FROM em WHERE em_pass='".$old."'");
+		// $num=mysql_num_rows($sql);		
+        $sql = "SELECT em_pass FROM em WHERE em_pass='".$old."'";
+        $query = $conn->query($sql);   
+        $num =$conn->num_rows($sql);
 		if($num==0){
 			echo "<script language='javascript'>alert('Bad Old Password.')</script>";
 			echo "<script language='javascript'>window.history.back()</script>";
@@ -13,7 +17,9 @@
 			echo "<script language='javascript'>alert('Password Not Match')</script>";
 			echo "<script language='javascript'>window.history.back()</script>";
 		}else{
-			mysql_query("UPDATE em SET em_pass='".$new."' WHERE em_id='".$id."'");
+			// mysql_query("UPDATE em SET em_pass='".$new."' WHERE em_id='".$id."'");
+            $sql = "UPDATE em SET em_pass='".$new."' WHERE em_id='".$id."'";
+            $query = $conn->query($sql);
 			echo "<script language='javascript'>alert('Save Done')</script>";
 			echo "<meta http-equiv=\"refresh\" content=\"0;url=index.php\">";
 			exit(0);

@@ -13,7 +13,7 @@
      $datarows = $conn->num_rows($sql);
     //  echo $sql . '-';
     //  echo $query. '-';
-     echo $datarows. '- : ';  
+    //  echo $datarows. '- : ';  
     //  echo $data->am_user.' \\\ '  ;  
      if($datarows == 0 ){
          echo "<script language='javascript'>alert('Username or Password incorrect')</script>";

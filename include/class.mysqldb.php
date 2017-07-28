@@ -1,8 +1,14 @@
 <?php
+	# configuration for database		
+	define('DB_SERVER', 'localhost');
+	define('DB_USERNAME', 'apt');
+	define('DB_PASSWORD', 'apt1234');
+	define('DB_DATABASE', 'api3');
 	class mysqldb {
 			var $link;
 			var $result;
 			var $query;
+					
 		public function connect($config) {
 			// $this->link = mysqli_connect($config['hostname'], $config['username'], $config['password']);
 			// if($this->link) {
@@ -13,17 +19,17 @@
 			// return false;
 
 			# configuration for database		
-			define('DB_SERVER', 'localhost');
-			define('DB_USERNAME', 'apt');
-			define('DB_PASSWORD', 'apt1234');
-			define('DB_DATABASE', 'api3');
+			// define('DB_SERVER', 'localhost');
+			// define('DB_USERNAME', 'apt');
+			// define('DB_PASSWORD', 'apt1234');
+			// define('DB_DATABASE', 'api3');
 			# connect the database server
 			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 			if($this->link) {
 				mysqli_query($this->link,"SET NAMES 'utf-8'");
 				return true;
 			}
-			$this->show_error(mysqli_error($this->link), "connect() : con");
+			// $this->show_error(mysqli_error($this->link), "connect() : con");
 			return false;
 		}
 		public function selectdb($database) {
@@ -42,11 +48,11 @@
 			// define('DB_DATABASE', 'api3');
 			# connect the database server
 			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-			if($this->link) {
-				mysqli_query($this->link,"SET NAMES 'utf-8'");
-				return true;
-			}
-			$this->show_error(mysqli_error($this->link), "connect()");			
+			// if($this->link) {
+			// 	mysqli_query($this->link,"SET NAMES 'utf-8'");
+			// 	return true;
+			// }
+			// $this->show_error(mysqli_error($this->link), "connect() : query");			
 			if($this->link) {	
 				$this->query = mysqli_query($this->link,$sql);
 				return $this->query;
