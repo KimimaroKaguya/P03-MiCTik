@@ -4,7 +4,7 @@ $conn = new mysqldb();
 		//$query=mysql_query("SELECT mt_id FROM mt_config WHERE name<>'".$_REQUEST['name']."'");
         $sql="SELECT mt_id FROM mt_config WHERE name <> '".$_REQUEST['name']."'";
         $query = $conn->query($sql);   
-		$//rows=mysql_num_rows($query);
+		//$rows=mysql_num_rows($query);
         $rows = $conn->num_rows();
 		if($rows > 0){
 			echo "<script language='javascript'>alert('Can not add site.')</script>";
