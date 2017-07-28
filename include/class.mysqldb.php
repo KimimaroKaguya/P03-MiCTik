@@ -65,14 +65,16 @@
 				return $result = mysqli_fetch_object($results);				
 			}
 		}
-		public  function fetch_array($query)
+		public  function fetch_array2($query)
 		{
 			$this->link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 			if($results = mysqli_query($this->link,$query)){
-				return $result = mysqli_fetch_array($results);
+				//return $result = mysqli_fetch_array($results);
+				return $result = mysqli_fetch_assoc($results);
+				
 			}
 		}
-		public function num_rows() {
+		public function num_rows($query) {
 			# configuration for database		
 			// define('DB_SERVER', 'localhost');
 			// define('DB_USERNAME', 'apt');
@@ -81,8 +83,10 @@
 			# connect the database server
 			$this->link  = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 			if($this->link) {
-				mysqli_query($this->link,"SET NAMES 'utf-8'");
-				return true;
+				$results = mysqli_query($this->link,$query);
+				return  mysqli_num_rows($results);
+				//mysqli_query($this->link,"SET NAMES 'utf-8'");
+				//return true;
 			}
 			$this->show_error(mysqli_error($this->link), "connect() num_rows Errors");
 			return false;

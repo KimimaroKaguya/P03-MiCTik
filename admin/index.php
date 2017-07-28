@@ -9,6 +9,7 @@
 	require('../config/routeros_api.class.php'); // คำสั่งเรียกใช้ Class ภายใน เราเตอร์ มาแสดง บนเว็บไซต์
 	include("../include/class.mysqldb.php");     // คำสั่งตรอบสอบการเชื่อมต่อ Mysql
 	include("../include/config.inc.php");	       // คำสั่งเชื่อมต่อ Mysql ใน Database
+  $conn = new mysqldb();
 	
 	if(!empty($_GET['did'])){ 
 		mysql_query("DELETE FROM mt_config WHERE mt_id='".$_GET['did']."'");   
@@ -194,9 +195,12 @@
                                         
                                             
 												<?php
-													$sql=mysql_query("SELECT * FROM mt_config");
+													$sql="SELECT * FROM mt_config";
+                          $query = $conn->query($sql);   
 													$no=0;
-													while($result=mysql_fetch_array($sql)){
+													//while($result=mysql_fetch_array($sql))
+                          while($result = $conn->fetch_array($sql) )
+                          {
 													$no++;
 													$API = new routeros_api();				
 													$API->debug = false;

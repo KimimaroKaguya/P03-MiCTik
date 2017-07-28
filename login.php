@@ -10,13 +10,12 @@
      $sql="SELECT * FROM em WHERE  em_user = '".$user."' AND  em_pass='".$pass."'";
      $query = $conn->query($sql);     
      $data = $conn->fetch($sql);
-     $datarows =$conn->num_rows();
-
+     $datarows = $conn->num_rows($sql);
     //  echo $sql . '-';
     //  echo $query. '-';
-    // echo $datarows. '- : ';  
+     echo $datarows. '- : ';  
     //  echo $data->am_user.' \\\ '  ;  
-     if($conn->num_rows()==0){
+     if($datarows == 0 ){
          echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
      }else{
         $_SESSION['EmpUser'] = $data->em_user;
