@@ -49,7 +49,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Kthai API Mikrorik รับติดตั้ง Mikrotik HotSpot ราคาถูก 086-990-5488 www.k-thai.net</title>
+        <title>Mikrotik API</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">

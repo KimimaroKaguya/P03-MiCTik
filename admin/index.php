@@ -198,8 +198,8 @@
 													$sql="SELECT * FROM mt_config";
                           $query = $conn->query($sql);   
 													$no=0;
-													//while($result=mysql_fetch_array($sql))
-                          while($result = $conn->fetch_array($sql) )
+                          // while($result = $conn->fetch_array($sql) )
+                          while($result = mysqli_fetch_array($query))
                           {
 													$no++;
 													$API = new routeros_api();				
