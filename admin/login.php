@@ -7,16 +7,16 @@
      $user = $_REQUEST['am_user'];
      $pass = md5($_REQUEST['am_pass']);
      $conn = new mysqldb();
-     $sql="SELECT * FROM am where am_user = '".$user."' and am_pass='".$pass."'";
-     $query = $conn ->query($sql);
-     $data = $conn->fetch($query);
-     
+     $sql="SELECT * FROM am WHERE am_user = '".$user."' AND am_pass='".$pass."'";
+     //echo $sql;
+     $query = $conn->query($sql);
+     $data = $conn->fetch($sql);
      if($conn->num_rows()==0){
          echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
      }else{
         unset($_SESSION['EmpUser']);
-        $_SESSION['APIUser']=$data->am_user;
-        $_SESSION['APIID']=$data->am_id;
+        $_SESSION['APIUser'] = $data->am_user;
+        $_SESSION['APIID'] = $data->am_id;
         echo "<meta http-equiv='refresh' content='0;url=index.php' />";
         exit(0);
      }
