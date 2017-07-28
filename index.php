@@ -25,7 +25,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Kthai Technology</title>
+    <title>Mikrotik API</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -51,7 +51,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>N</b>B</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Kthai</b>Technology</span>
+          <span class="logo-lg"><b>Mikrotik API</b></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -83,7 +83,9 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+              <img src="dist/img/user_red.png" class="img-circle" alt="User Image">
+              
             </div>
             <div class="pull-left info">
               <p>
@@ -139,8 +141,8 @@
       <div class="content-wrapper">
         <section class="content-header">
           <h1>
-            API Mikrotik By Kthai Technology
-            <small>By Korn Chomdee</small>
+            API Mikrotik 
+            <!--<small>By </small>-->
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>หน้าแรก</a></li>

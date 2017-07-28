@@ -11,7 +11,7 @@
      //echo $sql;
      $query = $conn->query($sql);
      $data = $conn->fetch($sql);
-     if($conn->num_rows()==0){
+     if($conn->num_rows($sql)==0){
          echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
      }else{
         unset($_SESSION['EmpUser']);
