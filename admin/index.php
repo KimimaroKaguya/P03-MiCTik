@@ -12,7 +12,9 @@
   $conn = new mysqldb();
 	
 	if(!empty($_GET['did'])){ 
-		mysql_query("DELETE FROM mt_config WHERE mt_id='".$_GET['did']."'");   
+		// mysql_query("DELETE FROM mt_config WHERE mt_id='".$_GET['did']."'");   
+    $sql = "DELETE FROM mt_config WHERE mt_id='".$_GET['did']."'" ; //humming
+    $query = $conn->query($sql); //humming
 		echo "<meta http-equiv=\"refresh\" content=\"0;url=index.php\">";  
 		exit(0);
 	}	
@@ -22,7 +24,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Kthai Api Mikrotik ติดตั้ง Hotspot ราคาถูกแสนถูก 086-990-5488 www.k-thai.net Line : 2521770 </title>
+  <title>Admin Api Mikrotik</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -49,7 +51,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>N</b>B</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Kthai</b>Technology</span>
+      <span class="logo-lg"><b>Mikrotik API</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -82,7 +84,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="../dist/img/dministrator.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><?php echo ($_SESSION['APIUser']); ?><?php echo ($_SESSION['EmpUser']); ?></p>
@@ -90,7 +92,7 @@
         </div>
       </div>
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
+      <!--<form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
@@ -98,7 +100,7 @@
                 </button>
               </span>
         </div>
-      </form>
+      </form>-->
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
@@ -152,8 +154,8 @@
        <div class="content-wrapper">
            <section class="content-header">
       <h1>
-        Kthai Technology
-        <small>By Kthai Team </small>
+        Mikrotik API
+        <small>Admin Page </small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>หน้าแรก</a></li>
@@ -198,8 +200,8 @@
 													$sql="SELECT * FROM mt_config";
                           $query = $conn->query($sql);   
 													$no=0;
-													//while($result=mysql_fetch_array($sql))
-                          while($result = $conn->fetch_array($sql) )
+                          // while($result = $conn->fetch_array($sql) )
+                          while($result = mysqli_fetch_array($query))
                           {
 													$no++;
 													$API = new routeros_api();				
