@@ -33,7 +33,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Kthai Api Mikrotik ติดตั้ง Hotspot ราคาถูกแสนถูก 086-990-5488 www.k-thai.net Line : 2521770</title>
+        <title>Api Mikrotik </title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -67,10 +67,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Kthai Technology รับติดตั้ง Mikrotik ติดตั้ง Host API Mikrotik ติดต่อ 0869905488</strong></h1>
+                            <h1><strong>Mikrotik API</strong></h1>
                             <div class="description">
                             	<p>
-	                            	  www.k-thai.net   
+	                            	  <!--www.k-thai.net   -->
                             	</p>
                             </div>
                         </div>

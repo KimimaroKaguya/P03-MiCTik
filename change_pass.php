@@ -39,7 +39,7 @@
            <section class="content-header">
       <h1>
         Mikrotik API v.3
-        <small>By Kthai Team</small>
+        <small></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>หน้าแรก</a></li>
