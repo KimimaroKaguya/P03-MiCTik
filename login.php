@@ -118,8 +118,8 @@
                         </div>
                     </div>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-<!--
-                    <div class="row">
+
+                     <!-- <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 social-login">
                         	<h3>...or login with:</h3>
                         	<div class="social-login-buttons">
@@ -134,7 +134,7 @@
 	                        	</a>
                         	</div>
                         </div>
-                    </div>
+                    </div>   -->
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->                    
                 </div>
             </div>
@@ -145,7 +145,7 @@
         <!-- Javascript -->
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <!-- <script src="assets/js/jquery.backstretch.min.js"></script> -->
+         <script src="assets/js/jquery.backstretch.min.js"></script> 
         <script src="assets/js/scripts.js"></script>
         
         <!--[if lt IE 10]>
