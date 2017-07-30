@@ -1,9 +1,17 @@
+    <!--/*******************************************************************
+    20160729 <Humming>: 
+    /*******************************************************************/-->
 <?php	
 	if(!empty($_REQUEST['name'])){
-		mysql_query("UPDATE mt_config SET mt_name='".$_REQUEST['name']."', mt_user='".$_REQUEST['user']."', mt_pass='".$_REQUEST['pass']."', mt_ip='".$_REQUEST['ip']."' WHERE mt_id='".$_GET['id']."'");
+
+		// mysql_query("UPDATE mt_config SET mt_name='".$_REQUEST['name']."', mt_user='".$_REQUEST['user']."', 
+        // mt_pass='".$_REQUEST['pass']."', mt_ip='".$_REQUEST['ip']."' WHERE mt_id='".$_GET['id']."'");
+        $sql = "UPDATE mt_config SET mt_name='".$_REQUEST['name']."', mt_user='".$_REQUEST['user']."', 
+        mt_pass='".$_REQUEST['pass']."', mt_ip='".$_REQUEST['ip']."' WHERE mt_id='".$_GET['id']."'";
+        $query = $conn->query($sql);   
 		echo "<script language='javascript'>alert('Save Done')</script>";
 		echo "<meta http-equiv=\"refresh\" content=\"0;url=index.php\">";
-		exit(0);
+		exit(0);   
 	}									   								
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -34,8 +42,11 @@
 		                        </div>
 		                        <div class="box-body">
                                 	<?php
-										$sql=mysql_query("SELECT * FROM mt_config WHERE mt_id='".$_GET['id']."'");
-										$result=mysql_fetch_array($sql);
+										// $sql=mysql_query("SELECT * FROM mt_config WHERE mt_id='".$_GET['id']."'");
+                                        $sql = " SELECT * FROM mt_config WHERE mt_id='".$_GET['id']."'";
+                                        $query = $conn->query($sql);   
+                                        $result = mysqli_fetch_array($query);
+										// $result=mysql_fetch_array($sql);
 									?>
 		                           <form id="edit_site" action="" method="post">
                                    		<div class="form-group input-group">
@@ -72,5 +83,6 @@
             </div>
 			
             <!-- /#wrapper -->
+            <!--/*******************************************************************/-->
 </body>
 </html>

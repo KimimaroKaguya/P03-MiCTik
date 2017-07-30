@@ -1,25 +1,30 @@
 <?php	
 $conn = new mysqldb();			
 	if(!empty($_REQUEST['name'])){
+    /*******************************************************************
+    20160729 <Humming>: 
+    /*******************************************************************/
 		//$query=mysql_query("SELECT mt_id FROM mt_config WHERE name<>'".$_REQUEST['name']."'");
         $sql="SELECT mt_id FROM mt_config WHERE name <> '".$_REQUEST['name']."'";
         $query = $conn->query($sql);   
-		//$rows=mysql_num_rows($query);
-        $rows = $conn->num_rows();
-		if($rows > 0){
-			echo "<script language='javascript'>alert('Can not add site.')</script>";
-		}else{			
-		$sql ="INSERT INTO mt_config(mt_id,mt_user,mt_pass,mt_ip,mt_name,mt_location,mt_mail,mt_tel,mt_gps) 
-        VALUES('','".$_REQUEST['user']."','".$_REQUEST['pass']."','".$_REQUEST['ip']."','".$_REQUEST['name']."','".$_REQUEST['location']."','".$_REQUEST['mail']."','".$_REQUEST['tel']."','".$_REQUEST['gps']."')";	
-	
+		// //$rows=mysql_num_rows($query);
+        $rows = $conn->num_rows($sql);
+        // echo $rows;
+        if ($rows > 0){
+        echo "<script language='javascript'>alert('Can not add site.')</script>";
+        }else{					
+		$sql ="INSERT INTO mt_config (mt_id,mt_user,mt_pass,mt_ip,mt_name,mt_location,mt_mail,mt_tel,mt_gps) 
+        VALUES('','".$_REQUEST['user']."','".$_REQUEST['pass']."','".$_REQUEST['ip']."','".$_REQUEST['name']."',
+        '".$_REQUEST['location']."','".$_REQUEST['mail']."','".$_REQUEST['tel']."','".$_REQUEST['gps']."')";	
 		// $sql=mysql_query($sql_q);
+        // echo $sql;
          $query = $conn->query($sql);
-			
-			echo "<script language='javascript'>alert('Save Done')</script>";
-			echo "<meta http-equiv=\"refresh\" content=\"0;url=index.php\">";
-			exit(0);
-		}
-	}									   								
+		echo "<script language='javascript'>alert('Save Done')</script>";
+		echo "<meta http-equiv=\"refresh\" content=\"0;url=index.php\">";
+        exit(0);
+        }
+    }
+    /*******************************************************************/
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,7 +37,7 @@ $conn = new mysqldb();
             <section class="content-header">
               <h1>
                 โปรแกรมบริหารจัดการอินเตอร์เน็ต
-                <small>K Thai Technology </small>
+                <small> </small>
               </h1>
               <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i>หน้าแรก</a></li>
@@ -45,7 +50,8 @@ $conn = new mysqldb();
                     <div class="col-md-12">
 		                  <div class="box box-solid box-success">                             
 		                        <div class="box-header">
-		                           <h3 class="box-title"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo $_SESSION['APIUser'] ;?> เพิ่มสถานที่บริหารจัดการอินเตอร์เน็ต</h3>
+		                           <h3 class="box-title"><i class="fa fa-user"></i>
+                                   &nbsp;&nbsp;<?php echo $_SESSION['APIUser'] ;?> เพิ่มสถานที่บริหารจัดการอินเตอร์เน็ต</h3>
 		                        </div>
 		                       <div class="box-body">
 		                           <form id="add_site" action="" method="post">                                   		
@@ -90,7 +96,9 @@ $conn = new mysqldb();
                                         </div>
                                        <br /> 
                                      <div class="form-group input-group">                                        
-                                        <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;บันทึก&nbsp;</button>&nbsp;&nbsp;&nbsp;<button id="btnSave" class="btn btn-danger" type="reset"><i class="fa fa-times"></i>&nbsp;ยกเลิก&nbsp;</button></a>
+                                        <button id="btnSave" class="btn btn-success" type="submit"><i class="fa fa-check"></i>&nbsp;บันทึก&nbsp;</button>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <button id="btnSave" class="btn btn-danger" type="reset"><i class="fa fa-times"></i>&nbsp;ยกเลิก&nbsp;</button>
                                     </div> 
                                     </form>
 		                        </div>		                        
